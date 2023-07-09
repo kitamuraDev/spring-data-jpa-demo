@@ -1,1 +1,33 @@
-GET http://localhost:8080/hello HTTP/1.1
+POST http://localhost:8080/characters HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "広川卯月"
+}
+
+###
+
+PUT http://localhost:8080/characters/5 HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "豊浜 のどか"
+}
+
+###
+
+DELETE http://localhost:8080/characters/4 HTTP/1.1
+
+###
+
+GET http://localhost:8080/characters HTTP/1.1
+
+###
+
+GET http://localhost:8080/characters/1 HTTP/1.1
+
+###
+
+GET http://localhost:8080/characters/find?name=梓川 HTTP/1.1
