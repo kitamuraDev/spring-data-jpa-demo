@@ -1,6 +1,6 @@
-CREATE TABLE characters(
+CREATE TABLE character(
     id SERIAL PRIMARY KEY,
     name VARCHAR(100)
 );
 
-DROP TABLE characters;
+DROP TABLE character;
