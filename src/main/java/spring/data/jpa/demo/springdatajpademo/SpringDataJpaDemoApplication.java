@@ -22,6 +22,7 @@ public class SpringDataJpaDemoApplication {
 	public ModelMapper modelMapper() {
     ModelMapper mapper = new ModelMapper();
     mapper.getConfiguration().setPreferNestedProperties(false);
+
     // String to LocalDate
     mapper.addConverter(
       new AbstractConverter<String, LocalDate>() {
@@ -32,8 +33,9 @@ public class SpringDataJpaDemoApplication {
           }
           DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
           return LocalDate.parse(source, format);
-	}
+	      }
     });
+
     // LocalDate to String
     mapper.addConverter(
       new AbstractConverter<LocalDate, String>() {
@@ -43,9 +45,10 @@ public class SpringDataJpaDemoApplication {
             return null;
           }
           DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	  return source.format(format);
-       }
+	        return source.format(format);
+        }
     });
+
     return mapper;
   }
 
