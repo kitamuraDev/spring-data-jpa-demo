@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CharacterRequest {
-  private String name;
-  private CharacterInfoRequest characterInfo;
+public class CharacterInfoRequest {
+  private String birthDate;
+  private String gender;
 }

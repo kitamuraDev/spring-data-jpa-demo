@@ -2,14 +2,12 @@ package spring.data.jpa.demo.springdatajpademo.api.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -26,32 +24,28 @@ public class CharacterController {
 
   @PostMapping
   public void create(@RequestBody CharacterRequest request) {
-    characterService.saveCharacter(request);
+    characterService.create(request);
   }
 
   @PutMapping("{id}")
   public void update(@PathVariable("id") Integer id, @RequestBody CharacterRequest request) {
-    characterService.updateCharacter(id, request);
-  }
-
-  @DeleteMapping("{id}")
-  public void delete(@PathVariable("id") Integer id) {
-    characterService.deleteCharacter(id);
+    characterService.update(id, request);
   }
 
   @GetMapping
   public List<CharacterResponse> getAllCharacters() {
-    return characterService.findAllCharacter();
+    return characterService.findAllCharacters();
   }
 
   @GetMapping("{id}")
-  public CharacterResponse findCharacterById(@PathVariable("id") Integer id) {
-    return characterService.findCharacterById(id);
+  public CharacterResponse getCharacter(@PathVariable("id") Integer id) {
+    return characterService.findCharacter(id);
   }
 
-  @GetMapping("/find")
-  public List<CharacterResponse> findCharacterByName(@RequestParam("name") String name) {
-    return characterService.findCharacterByName(name);
-  }
+  // @DeleteMapping("{id}")
+  // public void delete(@PathVariable("id") Integer id) {}
+
+  // @GetMapping("/find")
+  // public List<CharacterResponse> findCharacterByName(@RequestParam("name") String name) {}
 
 }

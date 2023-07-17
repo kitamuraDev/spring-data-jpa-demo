@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CharacterResponse {
-  private int id;
+  private Integer id;
   private String name;
+  private CharacterInfoResponse characterInfo;
 }
