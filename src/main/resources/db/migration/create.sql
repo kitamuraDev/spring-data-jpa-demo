@@ -1,15 +1,14 @@
-CREATE TABLE IF NOT EXISTS character(
+CREATE TABLE IF NOT EXISTS school (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100)
+    name VARCHAR(50)
 );
 
-CREATE TABLE IF NOT EXISTS character_info(
+CREATE TABLE IF NOT EXISTS student (
     id SERIAL PRIMARY KEY,
-    character_id INT,
-    birth_date DATE,
-    gender CHAR(1),
-    Foreign Key (character_id) REFERENCES character (id)
+    name VARCHAR(50),
+    school_id INT,
+    FOREIGN KEY (school_id) REFERENCES school (id)
 );
 
--- DROP TABLE character;
--- DROP TABLE character_info;
+-- DROP TABLE school;
+-- DROP TABLE student;
