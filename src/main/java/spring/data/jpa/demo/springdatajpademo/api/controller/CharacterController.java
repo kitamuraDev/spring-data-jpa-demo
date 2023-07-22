@@ -11,35 +11,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import spring.data.jpa.demo.springdatajpademo.api.controller.request.CharacterRequest;
-import spring.data.jpa.demo.springdatajpademo.api.controller.response.CharacterResponse;
-import spring.data.jpa.demo.springdatajpademo.api.service.CharacterService;
+import spring.data.jpa.demo.springdatajpademo.api.controller.request.SchoolRequest;
+import spring.data.jpa.demo.springdatajpademo.api.controller.response.SchoolResponse;
+import spring.data.jpa.demo.springdatajpademo.api.service.SchoolService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/characters")
+@RequestMapping("/schools")
 public class CharacterController {
 
-  private final CharacterService characterService;
+  private final SchoolService schoolService;
 
   @PostMapping
-  public void create(@RequestBody CharacterRequest request) {
-    characterService.create(request);
+  public void create(@RequestBody SchoolRequest request) {
+    schoolService.create(request);
   }
 
   @PutMapping("{id}")
-  public void update(@PathVariable("id") Integer id, @RequestBody CharacterRequest request) {
-    characterService.update(id, request);
+  public void update(@PathVariable("id") Integer id, @RequestBody SchoolRequest request) {
+    schoolService.update(id, request);
   }
 
   @GetMapping
-  public List<CharacterResponse> getAllCharacters() {
-    return characterService.findAllCharacters();
+  public List<SchoolResponse> getAllCharacters() {
+    return schoolService.findAllSchools();
   }
 
   @GetMapping("{id}")
-  public CharacterResponse getCharacter(@PathVariable("id") Integer id) {
-    return characterService.findCharacter(id);
+  public SchoolResponse getCharacter(@PathVariable("id") Integer id) {
+    return schoolService.findSchool(id);
   }
 
   // @DeleteMapping("{id}")

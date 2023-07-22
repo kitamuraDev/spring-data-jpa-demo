@@ -1,34 +1,38 @@
-POST http://localhost:8080/characters HTTP/1.1
+POST http://localhost:8080/schools HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "広川卯月",
-  "characterInfo": {
-    "birthDate": "1999-04-30",
-    "gender": "女"
-  }
+  "name": "学校D",
+  "students": [
+    {
+      "id": 4,
+      "name": "豊浜のどか"
+    }
+  ]
 }
 
 ###
 
-PUT http://localhost:8080/characters/4 HTTP/1.1
+PUT http://localhost:8080/schools/4 HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "豊浜のどか",
-  "characterInfo": {
-    "birthDate": "1999-03-14",
-    "gender": "女"
-  }
+  "name": "学校D",
+  "students": [
+    {
+      "id": 4,
+      "name": "広川卯月"
+    }
+  ]
 }
 
 ###
 
-GET http://localhost:8080/characters HTTP/1.1
+GET http://localhost:8080/schools HTTP/1.1
 
 ###
 
-GET http://localhost:8080/characters/1 HTTP/1.1
+GET http://localhost:8080/schools/1 HTTP/1.1
 
 ###
 
